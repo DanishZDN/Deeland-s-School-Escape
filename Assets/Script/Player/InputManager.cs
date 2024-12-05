@@ -11,7 +11,6 @@ public class InputManager : MonoBehaviour
     private PlayerLook look;
     private Animator animator;
 
-    // Start is called before the first frame update
     void Awake()
     {
         playerInput = new PlayerInput();
@@ -25,7 +24,6 @@ public class InputManager : MonoBehaviour
         onFoot.Sprint.performed += ctx => motor.Sprint();
     }
 
-    // Update is called once per frame
     void FixedUpdate()
     {
         Vector2 movement = onFoot.Movement.ReadValue<Vector2>();
@@ -33,11 +31,13 @@ public class InputManager : MonoBehaviour
 
         bool Isrunning = onFoot.Sprint.ReadValue<float>() > 0;
         bool Iswalking = movement.magnitude > 0 && !Isrunning;
+        bool Isjumping = !motor.IsGrounded; // Assuming motor has a property to check if the player is grounded
 
         if (animator != null)
         {
             animator.SetBool("Isrunning", Isrunning);
             animator.SetBool("Iswalking", Iswalking);
+            animator.SetBool("Isjumping", Isjumping);
         }
     }
 
