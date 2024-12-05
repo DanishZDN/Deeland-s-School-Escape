@@ -16,9 +16,12 @@ public class PlayerMotor : MonoBehaviour
     private bool sprinting;
     private float crouchTimer;
 
+    private Animator animator;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -54,9 +57,15 @@ public class PlayerMotor : MonoBehaviour
     {
         sprinting = !sprinting;
         if (sprinting)
+        {
             speed = 8;
+            animator.SetBool("Isrunning", true);
+        }
         else
+        {
             speed = 5;
+            animator.SetBool("Isrunning", false);
+        }
     }
 
     public void ProcessMove(Vector2 input)
@@ -69,6 +78,16 @@ public class PlayerMotor : MonoBehaviour
         if (isGrounded && playerVelocity.y < 0)
             playerVelocity.y = -2f;
         controller.Move(playerVelocity * Time.deltaTime);
+
+        if (moveDirection != Vector3.zero)
+        {
+            animator.SetBool("Iswalking", true);
+        }
+        else
+        {
+            animator.SetBool("Iswalking", false);
+        }
+
         Debug.Log(playerVelocity.y);
     }
 
@@ -79,13 +98,13 @@ public class PlayerMotor : MonoBehaviour
             playerVelocity.y = Mathf.Sqrt(jumpHeight * -3.0f * gravity);
         }
     }
-    
-public void Fall()
-{
-    if (!isGrounded)
+
+    public void Fall()
     {
-        playerVelocity.y += gravity * Time.deltaTime;
-        controller.Move(playerVelocity * Time.deltaTime);
+        if (!isGrounded)
+        {
+            playerVelocity.y += gravity * Time.deltaTime;
+            controller.Move(playerVelocity * Time.deltaTime);
+        }
     }
-}
 }
