@@ -4,4 +4,5 @@ https://assetstore.unity.com/packages/3d/environments/maze-modular-puzzle-kit-30
 https://assetstore.unity.com/packages/2d/textures-materials/floors/hand-painted-stone-texture-73949
 https://assetstore.unity.com/packages/3d/hand-painted-wooden-crate-36854
 https://assetstore.unity.com/packages/3d/props/stylized-fantasy-props-sample-234139
+https://assetstore.unity.com/packages/3d/environments/sci-fi/sci-fi-door-140080
 */
