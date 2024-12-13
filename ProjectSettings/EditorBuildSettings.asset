@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GlasssBridge.unity
     guid: d5ed2c5eb65eb3540ba8d66e117d4b4a
+  - enabled: 1
+    path: Assets/Scenes/YouWonScene.unity
+    guid: 1d30ff093694fab4b870e1bc24f71326
   m_configObjects: {}
