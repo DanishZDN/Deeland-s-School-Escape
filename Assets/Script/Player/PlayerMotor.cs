@@ -93,7 +93,7 @@ public class PlayerMotor : MonoBehaviour
             animator.SetBool("Iswalking", false);
         }
 
-        Debug.Log(playerVelocity.y);
+        //Debug.Log(playerVelocity.y);
     }
 
     public void Jump()

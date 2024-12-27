@@ -54,7 +54,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9195427824818707913, guid: 2e39335e51edc1641ac748115c1b2a77, type: 3}
       propertyPath: m_Name
-      value: Player Variant 1
+      value: REAK
+      objectReference: {fileID: 0}
+    - target: {fileID: 9195427824828067769, guid: 2e39335e51edc1641ac748115c1b2a77, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

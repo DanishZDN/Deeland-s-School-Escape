@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class ResetTutorial : MonoBehaviour
 {
+    bool reset = false;
+    GameObject player;
 void OnTriggerEnter(Collider other)
 {
     Debug.Log("Trigger entered by: " + other.name); // Log the object name
@@ -18,8 +20,18 @@ void OnTriggerEnter(Collider other)
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
         }
-        other.gameObject.transform.position = new Vector3(-0.1383868f, 0.5000002f, 0.862f);
-        Debug.Log("Player teleported.");
+        reset = true;
+        player = other.gameObject;
+        player.GetComponent<InputManager>().enabled = false;
+        player.GetComponent<PlayerMotor>().enabled = false;
+        player.transform.position = new Vector3(-10f, 0.5000002f, 27f);
+        Invoke("ActivateMovement", 0.1f);
     }
+}
+
+void ActivateMovement(){
+    player.GetComponent<InputManager>().enabled = true;
+    player.GetComponent<PlayerMotor>().enabled = true;
+
 }
 }

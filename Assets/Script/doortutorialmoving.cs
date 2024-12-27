@@ -9,7 +9,7 @@ public class DoorController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(triggerTag))
+        if (other.gameObject.tag == triggerTag)
         {
             Door_yellow.SetBool("isopening", true);
         }
@@ -17,7 +17,7 @@ public class DoorController : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag(triggerTag))
+        if (other.gameObject.tag == triggerTag)
         {
             Door_yellow.SetBool("isopening", false);
         }
